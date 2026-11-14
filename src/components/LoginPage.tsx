@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { LogIn, Mail, ShieldCheck, Sun, Moon } from 'lucide-react';
+import { Mail, ShieldCheck, Sun, Moon } from 'lucide-react';
+import officeEmblem from '../assets/images/legal_office_emblem_1794665745736.jpg';
+import chambersHero from '../assets/images/legal_chambers_hero_1794665747143.jpg';
 
 interface LoginPageProps {
   onGoogleLogin: () => Promise<void>;
@@ -46,7 +48,7 @@ export function LoginPage({
             <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-900 shrink-0 flex items-center justify-center">
               {!logoImgError ? (
                 <img
-                  src="/src/assets/images/legal_office_emblem_1794665745736.jpg"
+                  src={officeEmblem}
                   alt="شعار ميزان"
                   referrerPolicy="no-referrer"
                   onError={() => setLogoImgError(true)}
@@ -141,11 +143,16 @@ export function LoginPage({
             type="button"
             onClick={onGoogleLogin}
             disabled={authLoading}
-            className="w-full flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-gradient-to-r from-[#1D5CE5] to-[#1545B5] text-white font-semibold text-sm hover:from-[#1A52CE] hover:to-[#123B9E] shadow-sm transition-all disabled:opacity-60 cursor-pointer"
+            className="w-full flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white font-semibold text-sm hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all disabled:opacity-60 cursor-pointer"
           >
-            <LogIn className="w-4 h-4" aria-hidden="true" />
+            <svg className="w-4 h-4 shrink-0" viewBox="0 0 48 48" aria-hidden="true">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+            </svg>
             <span>
-              {authLoading ? 'جاري التحقق من الحساب...' : 'تسجيل الدخول بحساب Google (Cloud SQL)'}
+              {authLoading ? 'جاري التحقق من الحساب...' : 'تسجيل الدخول بحساب Google (Cloud SQL + Drive)'}
             </span>
           </button>
 
@@ -169,7 +176,7 @@ export function LoginPage({
       <div className="lg:col-span-7 relative min-h-[320px] lg:min-h-screen bg-slate-900 overflow-hidden flex items-end">
         {!heroImgError ? (
           <img
-            src="/src/assets/images/legal_chambers_hero_1794665747143.jpg"
+            src={chambersHero}
             alt="قاعة اجتماعات ومكتبة مكتب محاماة"
             referrerPolicy="no-referrer"
             onError={() => setHeroImgError(true)}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import officeEmblem from '../assets/images/legal_office_emblem_1794665745736.jpg';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -44,7 +45,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-amber-400/50 bg-[#0B1E47] mb-6 flex items-center justify-center shadow-xl">
           {!imgFailed ? (
             <img
-              src="/src/assets/images/legal_office_emblem_1794665745736.jpg"
+              src={officeEmblem}
               alt="شعار نظام ميزان للمحاماة"
               referrerPolicy="no-referrer"
               onError={() => setImgFailed(true)}

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { onAuthStateChanged, signInWithPopup, signOut, type User } from 'firebase/auth';
+import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
 import {
   BarChart3,
   BookOpen,
@@ -20,7 +20,11 @@ import {
   Users,
   X,
 } from 'lucide-react';
-import { auth, googleAuthProvider } from './lib/firebase.ts';
+import {
+  auth,
+  clearCachedDriveToken,
+  signInWithGoogleAndCacheDriveToken,
+} from './lib/firebase.ts';
 import { createEmptyWorkspace } from './data/seedData.ts';
 import type {
   AuditLogEntry,
@@ -202,6 +206,8 @@ export default function App() {
         } finally {
           setWorkspaceLoading(false);
         }
+      } else {
+        clearCachedDriveToken();
       }
     });
     return () => unsubscribe();
@@ -258,7 +264,7 @@ export default function App() {
     setAuthLoading(true);
     setAuthError(null);
     try {
-      await signInWithPopup(auth, googleAuthProvider);
+      await signInWithGoogleAndCacheDriveToken();
     } catch (err: unknown) {
       setAuthError(
         err instanceof Error
@@ -283,6 +289,7 @@ export default function App() {
   };
 
   const handleLogout = async () => {
+    clearCachedDriveToken();
     if (firebaseUser) {
       await signOut(auth);
     }

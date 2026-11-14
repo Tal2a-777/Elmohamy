@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { GoogleGenAI, ThinkingLevel } from '@google/genai';
-import { createServer as createViteServer } from 'vite';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { requireAuth, type AuthRequest } from './src/middleware/auth.ts';
@@ -754,6 +753,7 @@ async function startServer() {
   });
 
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
@@ -761,15 +761,29 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.resolve(__dirname, 'dist');
-    app.use(express.static(distPath));
+    app.use('/api', (_req, res) => {
+      res.status(404).json({ error: 'API endpoint not found' });
+    });
+    app.use(express.static(distPath, { maxAge: '1h' }));
     app.get('*', (_req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
-  app.listen(port, '0.0.0.0', () => {
+  const server = app.listen(port, '0.0.0.0', () => {
     console.log(`Server listening on http://0.0.0.0:${port}`);
   });
+
+  const shutdown = (signal: string) => {
+    console.log(`Received ${signal}, shutting down gracefully...`);
+    server.close(() => {
+      process.exit(0);
+    });
+    setTimeout(() => process.exit(0), 5000).unref();
+  };
+
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT', () => shutdown('SIGINT'));
 }
 
 startServer();
