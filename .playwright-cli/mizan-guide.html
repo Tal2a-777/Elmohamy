@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>الدليل الشامل لنظام ميزان — السجل الرئيسي للعملاء والقضايا</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 16mm 14mm 18mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans Arabic", "Noto Kufi Arabic", sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      font-size: 10.5pt;
+      line-height: 1.72;
+      direction: rtl;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Noto Kufi Arabic", "Noto Sans Arabic", sans-serif;
+      color: #0B1E47;
+      margin-top: 0;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .cover {
+      min-height: 252mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18mm 14mm;
+      border-radius: 14px;
+      background: linear-gradient(155deg, #0B1E47 0%, #102B63 58%, #1D5CE5 100%);
+      color: #ffffff;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(251, 191, 36, 0.55);
+      color: #FCD34D;
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .cover h1 {
+      color: #ffffff;
+      font-size: 25pt;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .cover-sub {
+      color: #DBEAFE;
+      font-size: 12pt;
+      line-height: 1.75;
+      max-width: 92%;
+      margin-bottom: 22px;
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .cover-card {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      padding: 11px 13px;
+    }
+
+    .cover-card strong {
+      display: block;
+      color: #FCD34D;
+      font-size: 10pt;
+      margin-bottom: 3px;
+    }
+
+    .cover-card span {
+      font-size: 9pt;
+      color: #E2E8F0;
+      display: block;
+      line-height: 1.55;
+    }
+
+    .cover-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.22);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10pt;
+    }
+
+    .cover-credit {
+      color: #FCD34D;
+      font-weight: 700;
+      font-size: 11.5pt;
+    }
+
+    .section-header {
+      border-right: 5px solid #1D5CE5;
+      padding-right: 12px;
+      margin: 18px 0 12px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .section-num {
+      display: inline-block;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #D97706;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .section-header h2 {
+      font-size: 15pt;
+      margin: 0;
+      color: #0B1E47;
+    }
+
+    .card {
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #F8FAFC;
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .card-white {
+      border: 1px solid #CBD5E1;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: #FFFFFF;
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .card h3 {
+      font-size: 11.5pt;
+      margin-bottom: 6px;
+      color: #0B1E47;
+    }
+
+    .callout-gold {
+      border: 1px solid #FDE68A;
+      border-right: 4px solid #D97706;
+      background: #FFFBEB;
+      border-radius: 9px;
+      padding: 10px 13px;
+      margin: 10px 0 12px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .callout-blue {
+      border: 1px solid #BFDBFE;
+      border-right: 4px solid #1D5CE5;
+      background: #EFF6FF;
+      border-radius: 9px;
+      padding: 10px 13px;
+      margin: 10px 0 12px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    ul, ol {
+      margin: 6px 0;
+      padding-right: 20px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 9.2pt;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    th {
+      background: #0B1E47;
+      color: #ffffff;
+      text-align: right;
+      padding: 7px 9px;
+      font-weight: 700;
+      border: 1px solid #0B1E47;
+    }
+
+    td {
+      padding: 6.5px 9px;
+      border: 1px solid #CBD5E1;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .step-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: #1D5CE5;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 9.5pt;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .mono {
+      font-family: "DejaVu Sans Mono", monospace;
+      direction: ltr;
+      display: inline-block;
+      background: #F1F5F9;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 9pt;
+      color: #0F172A;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .doc-footer {
+      margin-top: 16px;
+      padding-top: 8px;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER PAGE -->
+  <section class="cover">
+    <div>
+      <div class="cover-badge">الدليل التشغيلي الرسمي الشامل — الإصدار المتكامل</div>
+      <h1>نظام ميزان<br />السجل الرئيسي للعملاء والقضايا</h1>
+      <p class="cover-sub">
+        المرجع الكامل للتعريف بمنظومة إدارة مكاتب المحاماة والشؤون القانونية، شرح آلية التسجيل والدخول وعزل المساحات لكل بريد إلكتروني، ودليل العمل خطوة بخطوة عبر الوحدات الإحدى عشرة المتكاملة.
+      </p>
+
+      <div class="cover-grid">
+        <div class="cover-card">
+          <strong>1. عزل تام لكل بريد إلكتروني</strong>
+          <span>مساحة عمل مستقلة تماماً لكل حساب (عملاء، قضايا، فواتير، أمانات، ومستندات) دون أي تداخل إلا بدعوة فريق صريحة.</span>
+        </div>
+        <div class="cover-card">
+          <strong>2. المزامنة مع ناجز والتنبيهات الآلية</strong>
+          <span>تتبع الدائرة والحالة القضائية، تنبيهات مجدولة قبل 72 ساعة و24 ساعة ويوم الجلسة عبر WhatsApp وSMS والبريد وتقويم ICS.</span>
+        </div>
+        <div class="cover-card">
+          <strong>3. الذكاء الاصطناعي (OCR + الصياغة)</strong>
+          <span>استخراج النصوص تلقائياً من ملفات PDF والصور، تلخيص المذكرات، ومساعد صياغة قانونية للمذكرات الجوابية والاعتراضية.</span>
+        </div>
+        <div class="cover-card">
+          <strong>4. الفوترة ZATCA والخزينة المشفرة</strong>
+          <span>فواتير ضريبة 15% برمز QR، تتبع الساعات والأمانات، حاسبة المدد النظامية، توقيع إلكتروني، سجل تدقيق، وخزينة AES-256.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div>
+        <div>منظومة ميزان للشؤون القانونية</div>
+        <div style="font-size: 8.5pt; color: #CBD5E1;">متوافق مع الحواسيب والأجهزة اللوحية والجوال (RTL)</div>
+      </div>
+      <div class="cover-credit">إعداد / النقيب امين عبدالرحيم</div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: OVERVIEW & ARCHITECTURE -->
+  <div class="section-header">
+    <span class="section-num">الفصل الأول</span>
+    <h2>التعريف بالنظام وبنيته التشغيلية والأمنية</h2>
+  </div>
+
+  <p>
+    صُمم نظام <strong>«ميزان — السجل الرئيسي للعملاء والقضايا»</strong> ليكون منصة مركزية احترافية تدير دورة العمل القانونية والمالية والإدارية لمكاتب المحاماة والإدارات القانونية من لحظة تسجيل العميل وحتى إغلاق ملف القضية وتحصيل الأتعاب وإصدار التقارير.
+  </p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>الفئات المستفيدة من النظام</h3>
+      <ul>
+        <li><strong>الشريك المدير / مدير المكتب:</strong> متابعة جميع القضايا، الإيرادات، الأمانات، صلاحيات الفريق، وسجل التدقيق.</li>
+        <li><strong>المحامون والمستشارون:</strong> إدارة قضاياهم الموكلة، الجلسات، المذكرات، الصياغة بالذكاء الاصطناعي، وساعات العمل.</li>
+        <li><strong>السكرتارية الإدارية:</strong> تسجيل العملاء، جدولة المواعيد، التنبيهات، وأرشفة الإجراءات.</li>
+        <li><strong>المحاسب المالي:</strong> إصدار الفواتير الضريبية ZATCA، متابعة التحصيل، وسجلات الأمانات والعهد.</li>
+        <li><strong>العملاء (عبر بوابة العميل):</strong> متابعة قضاياهم وفواتيرهم والتوقيع الإلكتروني على العقود فقط.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>أبرز الركائز التقنية والأمنية</h3>
+      <ul>
+        <li><strong>عزل الحسابات حسب البريد الإلكتروني:</strong> كل بريد إلكتروني يمتلك مساحة عمل مغلقة لا يراها أي مستخدم آخر.</li>
+        <li><strong>واجهة عربية بالكامل (RTL):</strong> تدعم الوضع الفاتح والوضع الداكن وتعمل بسلاسة على الجوال والكمبيوتر.</li>
+        <li><strong>أمان البيانات:</strong> تشفير <span class="mono">AES-256-GCM</span> للمستندات مع بصمة <span class="mono">SHA-256</span> للتحقق من عدم التعديل.</li>
+        <li><strong>نظام خالٍ من البيانات الوهمية:</strong> يبدأ كل حساب جديد بسجل فارغ تماماً (<span class="mono">0</span> قيود) جاهز لإدخال بياناتك الحقيقية.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 2: REGISTRATION & LOGIN -->
+  <div class="section-header">
+    <span class="section-num">الفصل الثاني</span>
+    <h2>طريقة التسجيل والدخول إلى الموقع</h2>
+  </div>
+
+  <p>
+    عند فتح الموقع لأول مرة تظهر شاشة الترحيب (Splash Screen) لمدة وجيزة (ويمكن تجاوزها فوراً بالضغط على زر <strong>«تخطي إلى النظام»</strong>)، ثم تنتقل إلى <strong>بوابة الدخول الموحدة</strong> التي توفر طريقتين للعمل:
+  </p>
+
+  <div class="card-white">
+    <h3>الطريقة الأولى: الدخول بالبريد الإلكتروني المخصص (مساحة عمل معزولة وفورية)</h3>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div>اكتب بريدك الإلكتروني المهني في حقل <strong>«الدخول ببريد إلكتروني مخصص»</strong> (مثال: <span class="mono">office@lawfirm.com</span>).</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div>اضغط على زر <strong>«دخول بالبريد»</strong>، وسيتم فتح مساحة عمل جديدة وفارغة بالكامل مخصصة لهذا البريد داخل متصفحك.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div>للتبديل إلى حساب آخر أو التحقق من الاستقلالية، اضغط <strong>«تسجيل الخروج»</strong> أسفل القائمة الجانبية وسجّل ببريد آخر؛ ستجد أن بيانات كل بريد منفصلة تماماً ولا تختلط أبداً.</div>
+    </div>
+  </div>
+
+  <div class="card-white">
+    <h3>الطريقة الثانية: تسجيل الدخول بحساب Google (المزامنة السحابية Cloud SQL)</h3>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div>اضغط على زر <strong>«تسجيل الدخول بحساب Google (Cloud SQL)»</strong> وأكمل المصادقة الآمنة عبر نافذة Google.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div>تُحفظ جميع بياناتك سحابياً في قاعدة بيانات PostgreSQL آمنة عبر 14 جدولاً مترابطاً لتتمكن من الوصول إليها من أي جهاز.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div>إذا كنت مدعواً للعمل ضمن فريق مكتب محاماة، فبمجرد دخولك ببريدك المدعو عبر Google يربطك النظام تلقائياً بمساحة المكتب وفق الصلاحيات المحددة لك فقط.</div>
+    </div>
+  </div>
+
+  <div class="callout-gold">
+    <strong>قاعدة العزل التام:</strong> سواء استخدمت الدخول بالبريد الإلكتروني أو المزامنة السحابية، لا يوجد أي تداخل بين بريد وآخر إلا للأعضاء الذين يقوم المدير بإضافتهم يدوياً في قائمة «فريق العمل» داخل الإعدادات.
+  </div>
+
+  <!-- SECTION 3: INITIAL SETUP & SETTINGS -->
+  <div class="page-break"></div>
+  <div class="section-header">
+    <span class="section-num">الفصل الثالث</span>
+    <h2>التهيئة الأولية للمكتب وإدارة الفريق (صفحة الإعدادات)</h2>
+  </div>
+
+  <p>
+    يُنصح فور الدخول لأول مرة بالتوجه إلى تبويب <strong>«الإعدادات»</strong> من القائمة الجانبية لتهيئة هوية مكتبك وقوائم الاختيار الأساسية قبل فتح القضايا:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">بطاقة الإعداد</th>
+        <th>ما يتم ضبطه داخلها</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. معلومات المكتب</strong></td>
+        <td>اسم المكتب، العنوان، رقم الهاتف، <strong>الرقم الضريبي (VAT)</strong> المطبوع على الفواتير ورمز QR، نسبة الضريبة الافتراضية (<span class="mono">15%</span>)، ورفع شعار المكتب (PNG/JPG).</td>
+      </tr>
+      <tr>
+        <td><strong>2. قائمة المحامين</strong></td>
+        <td>إضافة أسماء المحامين وتخصصاتهم (أو حذف محامٍ) ليظهروا مباشرة في شاشة فتح القضايا والتقارير وتوزيع الصلاحيات.</td>
+      </tr>
+      <tr>
+        <td><strong>3. أنواع القضايا والجهات</strong></td>
+        <td>تخصيص تصنيفات القضايا (مثل: مطالبة تعاقدية، نزاع تجاري، قضايا عمالية...) والجهات/المحاكم (المحكمة العامة، التجارية، التنفيذ، التحكيم...).</td>
+      </tr>
+      <tr>
+        <td><strong>4. ترقيم الملفات التلقائي</strong></td>
+        <td>تحديد بادئة القضايا (مثل <span class="mono">CASE</span>) والرقم التسلسلي التالي، وبادئة العملاء (مثل <span class="mono">CL</span>) ليُنشئ النظام الرموز تلقائياً.</td>
+      </tr>
+      <tr>
+        <td><strong>5. المواعيد والتنبيهات</strong></td>
+        <td>تحديد عدد الأيام للتنبيه المسبق قبل الجلسة، تفعيل إلزام مصدر الموعد، إشعارات WhatsApp وEmail، <strong>رسائل SMS للجلسات العاجلة (72/24 ساعة)</strong>، والمزامنة التلقائية مع ناجز.</td>
+      </tr>
+      <tr>
+        <td><strong>6. فريق العمل والصلاحيات</strong></td>
+        <td>إضافة أعضاء المكتب بالاسم والبريد الإلكتروني وتحديد الدور الوظيفي مع إمكانية تخصيص 6 صلاحيات دقيقة لكل عضو وتعديلها أو إزالته في أي وقت.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>مصفوفة الأدوار الوظيفية (RBAC)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>الدور الوظيفي</th>
+        <th>عرض القضايا</th>
+        <th>تعديل/إضافة</th>
+        <th>حذف السجلات</th>
+        <th>الفواتير والأمانات</th>
+        <th>الإعدادات</th>
+        <th>سجل التدقيق</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>مدير عام (Admin)</strong></td>
+        <td>جميع الملفات</td>
+        <td>مسموح</td>
+        <td>مسموح</td>
+        <td>مسموح</td>
+        <td>مسموح</td>
+        <td>مسموح</td>
+      </tr>
+      <tr>
+        <td><strong>محامٍ (Lawyer)</strong></td>
+        <td>قضاياه المسندة</td>
+        <td>مسموح</td>
+        <td>ممنوع</td>
+        <td>حسب التخصيص</td>
+        <td>ممنوع</td>
+        <td>حسب التخصيص</td>
+      </tr>
+      <tr>
+        <td><strong>سكرتارية (Secretary)</strong></td>
+        <td>جميع الملفات</td>
+        <td>مسموح</td>
+        <td>ممنوع</td>
+        <td>مسموح</td>
+        <td>ممنوع</td>
+        <td>ممنوع</td>
+      </tr>
+      <tr>
+        <td><strong>محاسب مالي (Accountant)</strong></td>
+        <td>جميع الملفات (عرض)</td>
+        <td>ممنوع</td>
+        <td>ممنوع</td>
+        <td>صلاحية كاملة</td>
+        <td>ممنوع</td>
+        <td>مسموح</td>
+      </tr>
+      <tr>
+        <td><strong>عميل (Client Portal)</strong></td>
+        <td>قضاياه فقط</td>
+        <td>توقيع العقود فقط</td>
+        <td>ممنوع</td>
+        <td>عرض فواتيره فقط</td>
+        <td>ممنوع</td>
+        <td>ممنوع</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 4: DAILY WORKFLOW -->
+  <div class="page-break"></div>
+  <div class="section-header">
+    <span class="section-num">الفصل الرابع</span>
+    <h2>دورة العمل اليومية (اللوحة الرئيسية، العملاء، القضايا، وناجز)</h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="card-white">
+      <h3>1. اللوحة الرئيسية (Dashboard)</h3>
+      <ul>
+        <li><strong>مؤشرات الأداء:</strong> إجمالي العملاء النشطين، الجلسات القريبة العاجلة، وإجمالي القضايا موزعة إلى (متابعة، مغلقة، موقوفة).</li>
+        <li><strong>شريط البحث والفلاتر:</strong> تصفية فورية حسب العميل، نوع القضية، الحالة، أو البحث برقم القضية أو اسم العميل.</li>
+        <li><strong>مركز التنبيهات الآلية:</strong> يعرض تلقائياً الجلسات المتبقّي عليها 72 ساعة أو 24 ساعة أو اليوم نفسه مع أزرار إرسال فوري عبر <span class="mono">WhatsApp</span> / <span class="mono">SMS</span> / <span class="mono">Email</span> وسجل لآخر الإشعارات المرسلة.</li>
+        <li><strong>اختصارات سريعة:</strong> إضافة عميل، فتح ملف قضية، جدولة موعد سريع (مع إمكانية تصدير ملف تقويم <span class="mono">.ics</span>)، وتصدير CSV.</li>
+      </ul>
+    </div>
+    <div class="card-white">
+      <h3>2. إدارة العملاء وفتح ملف قضية</h3>
+      <ul>
+        <li><strong>إضافة عميل:</strong> من تبويب <strong>«العملاء»</strong> اضغط «إضافة عميل جديد»، وحدد النوع (فرد أو جهة/شركة)، الهاتف، البريد، ورقم الهوية/السجل.</li>
+        <li><strong>بطاقة العميل:</strong> تعرض بياناته الكاملة مع زر للتعديل المباشر وزر للانتقال السريع إلى قضاياه.</li>
+        <li><strong>فتح ملف قضية:</strong> من تبويب <strong>«فتح ملف قضية»</strong> يظهر الرمز التلقائي للنظام، وتُدخل الرقم الرسمي، السنة، العميل، الموضوع، صفة العميل (مدعٍ/مدعى عليه)، الطرف الآخر، المحكمة، المحامي، تاريخ الجلسة القادمة، ورابط المجلد السحابي.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout-blue">
+    <strong>المزامنة مع بوابة ناجز (Najiz):</strong> من صفحة <strong>«القضايا»</strong> اضغط أيقونة العين لعرض تفاصيل أي قضية، ثم اضغط زر <strong>«مزامنة ناجز»</strong> لإدخال أو تحديث (الدائرة القضائية، الحالة الرسمية في البوابة، وتاريخ الجلسة المستورد)، ويُحفظ وقت آخر مزامنة وتُضاف العملية تلقائياً في سجل التدقيق.
+  </div>
+
+  <!-- SECTION 5: PROCEDURES, OCR & AI -->
+  <div class="page-break"></div>
+  <div class="section-header">
+    <span class="section-num">الفصل الخامس</span>
+    <h2>سجل الإجراءات، استخراج النصوص (OCR)، والذكاء الاصطناعي</h2>
+  </div>
+
+  <p>
+    يمثل تبويب <strong>«سجل الإجراءات»</strong> الذاكرة التاريخية الكاملة لكل قضية مع أدوات ذكية لتوفير وقت المحامي:
+  </p>
+
+  <div class="card">
+    <h3>تسجيل الإجراءات واستخراج النصوص التلقائي (Auto-OCR)</h3>
+    <ul>
+      <li>اضغط <strong>«تسجيل إجراء جديد»</strong> وحدد القضية، التاريخ، نوع الإجراء (جلسة، مراجعة، استلام، إيداع مذكرة)، اسم المنفذ، الوصف، النتيجة، وتاريخ الموعد القادم (الذي يحدّث الجلسة القادمة على القضية تلقائياً).</li>
+      <li>حدّد خيار <strong>«إظهار الإجراء والمرفق في بوابة العميل»</strong> إذا رغبت في إتاحته للعميل، أو اتركه غير محدد ليبقى داخلياً للمكتب.</li>
+      <li>عند إرفاق ملف <strong>PDF أو صورة</strong>، يقوم النظام تلقائياً بتشغيل محرك <strong>OCR بالذكاء الاصطناعي</strong> لاستخراج كافة النصوص والتواريخ والأرقام القضائية ووضعها في حقل النص المفهرس، لتتمكن لاحقاً من البحث داخل محتوى الملفات مباشرة من شريط البحث!</li>
+      <li>يمكنك من كل بطاقة إجراء الضغط على <strong>«حفظ بالخزينة المشفرة»</strong> لنقل المستند وتشفيره فوراً مع تتبع إصداراته.</li>
+    </ul>
+  </div>
+
+  <div class="card-white">
+    <h3>أدوات الذكاء الاصطناعي القانوني (AI)</h3>
+    <ul>
+      <li><strong>مساعِد الصياغة القانونية (AI):</strong> من الزر الذهبي أعلى الصفحة، اختر القضية ونوع المذكرة (مذكرة دفاع جوابية، لائحة دعوى ابتدائية، لائحة اعتراضية للاستئناف، طلب عارض)، واكتب ملخص الوقائع والطلبات ليقوم النظام بصياغة مسودة قانونية منسقة (البسملة والديباجة، الوقائع، الأسانيد، والطلبات الختامية) مع زر نسخ فوري.</li>
+      <li><strong>تلخيص المستندات بالذكاء الاصطناعي:</strong> على أي إجراء مسجل، اضغط زر <strong>«تلخيص المستند بالذكاء الاصطناعي»</strong> للحصول على خلاصة مركزة في نقاط (الوقائع، الدفوع، التوصية العملية).</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6: TOOLS, BILLING & REPORTS -->
+  <div class="page-break"></div>
+  <div class="section-header">
+    <span class="section-num">الفصل السادس</span>
+    <h2>المدد النظامية، العقود الإلكترونية، الفوترة ZATCA، الأمانات، والتقارير</h2>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 24%;">الوحدة</th>
+        <th>طريقة العمل والمميزات الأساسية</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>حاسبة المدد النظامية</strong><br /><span style="font-size: 8.5pt; color:#64748B;">(تبويب: المدد والعقود)</span></td>
+        <td>اختر نوع المهلة (استئناف 30 يوماً، مستعجلة 10 أيام، إدارية 60 يوماً، طعن بالنقض 30 يوماً، التماس إعادة نظر 30 يوماً) وأدخل تاريخ صدور الحكم أو التبليغ، مع إمكانية إضافة تواريخ إجازات رسمية. يقوم النظام بالاحتساب والترحيل التلقائي إذا صادف آخر يوم جمعة أو سبت أو إجازة، ويمكن حفظ المهلة في جدول المتابعة وتغيير حالتها إلى «مكتمل».</td>
+      </tr>
+      <tr>
+        <td><strong>العقود والتوقيع الإلكتروني</strong><br /><span style="font-size: 8.5pt; color:#64748B;">(تبويب: المدد والعقود)</span></td>
+        <td>أنشئ اتفاقيات الأتعاب أو التفويضات أو اتفاقيات التسوية وحدد العميل والقضية وشروط الأتعاب. اضغط <strong>«توقيع إلكتروني»</strong> لفتح لوحة التوقيع بالرسم المباشر (بالفأرة أو اللمس على الجوال) وتوثيق اسم الموقّع وتاريخ التوقيع، مع زر طباعة رسمية على ترويسة المكتب.</td>
+      </tr>
+      <tr>
+        <td><strong>الفواتير الضريبية ZATCA</strong><br /><span style="font-size: 8.5pt; color:#64748B;">(تبويب: الفواتير والأمانات)</span></td>
+        <td>إصدار فواتير ضريبية وإشعارات دائنة ومدينة مع احتساب ضريبة القيمة المضافة (<span class="mono">15%</span>) تلقائياً وتوليد رمز <strong>ZATCA TLV Base64 QR</strong> كصورة فعلية قابلة للمسح، وتسجيل الدفعات الجزئية أو الكاملة وطباعة الفاتورة بترويسة المكتب.</td>
+      </tr>
+      <tr>
+        <td><strong>ساعات العمل القابلة للفوترة</strong><br /><span style="font-size: 8.5pt; color:#64748B;">(تبويب: الفواتير والأمانات)</span></td>
+        <td>تسجيل الساعات القانونية وسعر الساعة لكل قضية، ثم تحويل الساعات غير المفوترة بنقرة واحدة إلى فاتورة ضريبية ZATCA مكتملة البيانات.</td>
+      </tr>
+      <tr>
+        <td><strong>الأمانات والعهد</strong><br /><span style="font-size: 8.5pt; color:#64748B;">(تبويب: الفواتير والأمانات)</span></td>
+        <td>تتبع الإيداعات والخصومات (رسوم، خبرة، مصروفات) والمبالغ المستردة لكل عميل مع احتساب فوري للرصيد الصافي وتصفيته حسب العميل.</td>
+      </tr>
+      <tr>
+        <td><strong>التقارير</strong><br /><span style="font-size: 8.5pt; color:#64748B;">(تبويب: التقارير)</span></td>
+        <td>أربعة تقارير جاهزة: (حسب المحامي، حسب الحالة، كشف حساب عميل، المواعيد المعتمدة) مع التصفية بفترة زمنية محددة والتصدير إلى Excel/CSV أو الطباعة/PDF.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 7: AUDIT, VAULT, PORTAL & CHECKLIST -->
+  <div class="page-break"></div>
+  <div class="section-header">
+    <span class="section-num">الفصل السابع</span>
+    <h2>التدقيق الأمني، الخزينة المشفرة، بوابة العميل، وخطة البدء السريع</h2>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>سجل التدقيق الأمني والخزينة المشفرة</h3>
+      <ul>
+        <li><strong>سجل التدقيق:</strong> يسجل كل حركة في النظام (إنشاء، تعديل، حذف، توقيع إلكتروني، مزامنة ناجز، تصدير، مشاركة) مع البريد المنفذ والتاريخ والبحث والتصفية حسب نوع الإجراء.</li>
+        <li><strong>خزينة المستندات المشفرة:</strong> عند رفع مستند وتحديد «مفتاح المجموعة» (مثل <span class="mono">contract-01</span>)، يُشفر الملف بتقنية <span class="mono">AES-256-GCM</span> وتُحسب بصمة <span class="mono">SHA-256</span> مع ترقيم تلقائي للإصدارات (<span class="mono">v1, v2, v3...</span>).</li>
+        <li><strong>فك التشفير والمشاركة المؤقتة:</strong> يمكنك فك تشفير وتحميل أي إصدار في أي وقت، أو الضغط على <strong>«مشاركة 7 أيام»</strong> لتوليد رابط مؤقت آمن ينتهي تلقائياً بعد أسبوع.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>بوابة العميل (Client Portal)</h3>
+      <ul>
+        <li>تُعرض للعميل (أو عند معاينتها من شريط الصلاحية في الأعلى) واجهة مقيدة تماماً تقتصر على ملفات هذا العميل فقط.</li>
+        <li>يشاهد العميل عدد قضاياه، إجمالي المدفوع والمتبقي، جلساته القادمة، والمستندات التي صرّح المحامي بإظهارها له فقط.</li>
+        <li>يستطيع العميل مراجعة اتفاقيات الأتعاب والتوقيع عليها إلكترونياً بالرسم المباشر من بوابتِه الخاصة.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-white">
+    <h3>قائمة الخطوات العملية السريعة لبدء العمل (Checklist)</h3>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div><strong>سجّل دخولك:</strong> اختر الدخول ببريدك الإلكتروني (مساحة محلية معزولة) أو بحساب Google (مزامنة سحابية).</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div><strong>هيّئ المكتب:</strong> افتح «الإعدادات» وأضف اسم المكتب، الشعار، الرقم الضريبي، المحامين، وفريق العمل وصلاحياتهم.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div><strong>سجّل عملاءك وافتح القضايا:</strong> أضف أول عميل من «العملاء»، ثم افتح ملف القضية واربطه بمحامٍ وموعد جلسة وناجز.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div><strong>أدر الجلسات والمستندات:</strong> سجّل الإجراءات، استفد من Auto-OCR ومساعد الصياغة AI، واحسب المهل القانونية، وأرشف المستندات في الخزينة المشفرة.</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div><strong>وقّع العقود وأصدر الفواتير:</strong> وقّع اتفاقيات الأتعاب إلكترونياً، سجّل الساعات والأمانات، وأصدر فواتير ضريبية ZATCA برمز QR وتقارير PDF.</div>
+    </div>
+  </div>
+
+  <div class="callout-blue" style="margin-top: 14px;">
+    <strong>إصدار وتوثيق النظام:</strong> نظام ميزان — السجل الرئيسي للعملاء والقضايا | <strong>إعداد / النقيب امين عبدالرحيم</strong>
+  </div>
+
+</body>
+</html>

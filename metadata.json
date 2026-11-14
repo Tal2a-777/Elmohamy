@@ -1,0 +1,6 @@
+{
+  "name": "ميزان — نظام إدارة مكاتب المحاماة والشؤون القانونية",
+  "description": "السجل الرئيسي للعملاء والقضايا — نظام متكامل لإدارة مكاتب المحاماة والشؤون القانونية، سجل الإجراءات، الفواتير، والتقارير.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
